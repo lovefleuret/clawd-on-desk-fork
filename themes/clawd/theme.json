@@ -1087,7 +1087,7 @@
     "baselineBottomRatio": 0.05
   },
   "eyeTracking": {
-    "enabled": true,
+    "enabled": false,
     "states": [
       "idle",
       "dozing",
