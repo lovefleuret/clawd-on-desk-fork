@@ -1,0 +1,86 @@
+name: Manual Build (no release)
+
+# Manual-only test build: packages the app and uploads the installers as
+# workflow artifacts. Never publishes a GitHub release.
+on:
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: "Which platform to build"
+        required: true
+        type: choice
+        default: windows
+        options:
+          - windows
+          - mac
+          - linux
+          - all
+      run_tests:
+        description: "Run npm test before packaging"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  build-windows:
+    if: ${{ inputs.platform == 'windows' || inputs.platform == 'all' }}
+    timeout-minutes: 60
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - run: npm ci
+      - run: npm test
+        if: ${{ inputs.run_tests }}
+      - run: npx electron-builder --win nsis:x64 --publish never
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-x64-installer
+          path: dist/*.exe
+          if-no-files-found: error
+
+  build-mac:
+    if: ${{ inputs.platform == 'mac' || inputs.platform == 'all' }}
+    timeout-minutes: 60
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - run: npm ci
+      - run: npm test
+        if: ${{ inputs.run_tests }}
+      # Unsigned ad-hoc build, for local testing only.
+      - run: npx electron-builder --mac --publish never
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mac-installer
+          path: dist/*.dmg
+          if-no-files-found: error
+
+  build-linux:
+    if: ${{ inputs.platform == 'linux' || inputs.platform == 'all' }}
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - run: npm ci
+      - run: xvfb-run -a npm test
+        if: ${{ inputs.run_tests }}
+      - run: npx electron-builder --linux --publish never
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux-installer
+          path: |
+            dist/*.AppImage
+            dist/*.deb
+          if-no-files-found: error
