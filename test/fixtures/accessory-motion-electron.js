@@ -24,7 +24,6 @@ themeLoader.init(path.join(ROOT, "src"));
 
 const BUILTINS = [
   { id: "clawd", theme: path.join(ROOT, "themes", "clawd", "theme.json"), assets: path.join(ROOT, "assets", "svg") },
-  { id: "cloudling", theme: path.join(ROOT, "themes", "cloudling", "theme.json"), assets: path.join(ROOT, "themes", "cloudling", "assets") },
 ];
 const SLOT_AUDITS = Object.freeze([
   Object.freeze({

@@ -48,11 +48,12 @@ describe("visible margin envelopes", () => {
   });
 
   it("uses the minimum top and bottom margins across a theme envelope", () => {
-    const calico = themeLoader.loadTheme("calico");
-    const files = collectThemeEnvelopeFiles(calico);
+    const clawd = themeLoader.loadTheme("clawd");
+    const box = getThemeMarginBox(clawd);
+    const files = collectThemeEnvelopeFiles(clawd);
     const expected = files.reduce((acc, file) => {
-      const rect = hitGeometry.getContentRectScreen(calico, bounds, null, file, {
-        box: calico.layout.contentBox,
+      const rect = hitGeometry.getContentRectScreen(clawd, bounds, null, file, {
+        box,
       });
       if (!rect) return acc;
       return {
@@ -61,13 +62,13 @@ describe("visible margin envelopes", () => {
       };
     }, { top: Infinity, bottom: Infinity });
 
-    const stable = computeStableVisibleContentMargins(calico, bounds);
+    const stable = computeStableVisibleContentMargins(clawd, bounds);
     assert.deepStrictEqual(stable, expected);
 
-    const idleRect = hitGeometry.getContentRectScreen(calico, bounds, "idle", calico.states.idle[0], {
-      box: calico.layout.contentBox,
+    const idleRect = hitGeometry.getContentRectScreen(clawd, bounds, "idle", clawd.states.idle[0], {
+      box,
     });
-    assert.ok(stable.top < Math.round(idleRect.top - bounds.y));
+    assert.ok(stable.top <= Math.round(idleRect.top - bounds.y));
     assert.ok(stable.bottom <= Math.round(bounds.y + bounds.height - idleRect.bottom));
   });
 
@@ -88,33 +89,6 @@ describe("visible margin envelopes", () => {
       computeThemeAnchorRect(clawd, bounds),
       hitGeometry.getContentRectScreen(clawd, bounds, "idle", clawd.states.idle[0], {
         box: clawd.updateBubbleAnchorBox,
-      })
-    );
-  });
-
-  it("keeps a stable update anchor for calico even though per-state hit bottoms differ", () => {
-    const calico = themeLoader.loadTheme("calico");
-    const anchor = computeThemeAnchorRect(calico, bounds);
-    const thinkingHit = hitGeometry.getHitRectScreen(
-      calico,
-      bounds,
-      "thinking",
-      "calico-thinking.apng",
-      calico.hitBoxes.default
-    );
-    const notificationHit = hitGeometry.getHitRectScreen(
-      calico,
-      bounds,
-      "notification",
-      "calico-notification.apng",
-      calico.hitBoxes.wide
-    );
-
-    assert.notStrictEqual(Math.round(thinkingHit.bottom), Math.round(notificationHit.bottom));
-    assert.deepStrictEqual(
-      anchor,
-      hitGeometry.getContentRectScreen(calico, bounds, "idle", calico.states.idle[0], {
-        box: calico.layout.contentBox,
       })
     );
   });

@@ -9,8 +9,16 @@ const path = require("node:path");
 const themeLoader = require("../src/theme-loader");
 themeLoader.init(path.join(__dirname, "..", "src"));
 const _defaultTheme = themeLoader.loadTheme("clawd");
-const _calicoTheme = themeLoader.loadTheme("calico");
-const _cloudlingTheme = themeLoader.loadTheme("cloudling");
+// A second theme for hot-switch coverage: clawd with its own idle/thinking art,
+// no update-visual override, a yawn-skipping DND collapse and a longer wake.
+const _altTheme = (() => {
+  const theme = structuredClone(_defaultTheme);
+  theme._id = "alt";
+  theme.states = { ...theme.states, idle: ["alt-idle-follow.svg"], thinking: ["alt-thinking.svg"] };
+  delete theme.updateVisuals;
+  theme.timings = { ...theme.timings, wakeDuration: 5800, dndSkipYawn: true, collapseDuration: 5200 };
+  return theme;
+})();
 const { createTranslator } = require("../src/i18n");
 const { makeSessionKey, resolveSessionIdentity } = require("../src/session-key");
 const { isSessionInProgress, sessionSnapshotSignature } = require("../src/state-session-snapshot");
@@ -594,11 +602,11 @@ describe("resolveDisplayState()", () => {
 
   it("checking overlay falls back to the theme thinking visual when no update override is declared", () => {
     api.cleanup();
-    api = require("../src/state")(makeCtx({ theme: _calicoTheme }));
+    api = require("../src/state")(makeCtx({ theme: _altTheme }));
 
     api.setUpdateVisualState("checking");
     assert.strictEqual(api.resolveDisplayState(), "thinking");
-    assert.strictEqual(api.getSvgOverride("thinking"), "calico-thinking.apng");
+    assert.strictEqual(api.getSvgOverride("thinking"), "alt-thinking.svg");
 
     api.setUpdateVisualState("available");
     assert.strictEqual(api.resolveDisplayState(), "notification");
@@ -616,9 +624,9 @@ describe("resolveDisplayState()", () => {
     api.setUpdateVisualState("checking");
     assert.strictEqual(api.getSvgOverride("thinking"), "clawd-working-debugger.svg");
 
-    ctx.theme = _calicoTheme;
+    ctx.theme = _altTheme;
     api.refreshTheme();
-    assert.strictEqual(api.getSvgOverride("thinking"), "calico-thinking.apng");
+    assert.strictEqual(api.getSvgOverride("thinking"), "alt-thinking.svg");
 
     ctx.theme = _defaultTheme;
     api.refreshTheme();
@@ -3122,10 +3130,10 @@ describe("updateSession()", () => {
 
   it("keeps settings-preview ownership through the mini-working remap", () => {
     api.cleanup();
-    ctx = makeCtx({ theme: _cloudlingTheme, miniMode: true, processKill: () => true });
+    ctx = makeCtx({ theme: _defaultTheme, miniMode: true, processKill: () => true });
     api = require("../src/state")(ctx);
 
-    // Cloudling has a real mini-working binding, so working lands on it rather
+    // Clawd has a real mini-working binding, so working lands on it rather
     // than on the preview file. The remap must forward the preview marker or
     // the visual ends up owned by nobody and never gets handed back.
     api.applyState("working", "settings-preview.svg", { settingsPreview: true });
@@ -6896,10 +6904,10 @@ describe("refreshTheme()", () => {
   it("updates idle svg and DND sleep path after hot theme switch", () => {
     assert.strictEqual(api.getSvgOverride("idle"), "clawd-idle-follow.svg");
 
-    ctx.theme = _calicoTheme;
+    ctx.theme = _altTheme;
     api.refreshTheme();
 
-    assert.strictEqual(api.getSvgOverride("idle"), "calico-idle-follow.svg");
+    assert.strictEqual(api.getSvgOverride("idle"), "alt-idle-follow.svg");
     api.enableDoNotDisturb();
     assert.strictEqual(api.getCurrentState(), "collapsing");
     mock.timers.tick(5200);
@@ -6907,7 +6915,7 @@ describe("refreshTheme()", () => {
   });
 
   it("uses the refreshed theme wake duration before returning from waking", () => {
-    ctx.theme = _calicoTheme;
+    ctx.theme = _altTheme;
     api.refreshTheme();
 
     api.applyState("waking");

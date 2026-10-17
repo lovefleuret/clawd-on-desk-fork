@@ -126,14 +126,5 @@
     }
   ],
   "prHistoryAssetAllowlist": [],
-  "duplicatePayloadExemptions": [
-    {
-      "paths": [
-        "themes/calico/assets/calico-mini-crabwalk.apng",
-        "themes/calico/assets/calico-roam-crabwalk.apng"
-      ],
-      "owner": "theme-runtime",
-      "reason": "The states currently require different file-keyed offsets; consolidation is blocked pending a renderer and hit-geometry design."
-    }
-  ]
+  "duplicatePayloadExemptions": []
 }

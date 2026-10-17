@@ -52,8 +52,6 @@ describe("built-in accessory capability contracts", () => {
   it("keeps raw metadata and normalized runtime capability aligned", () => {
     for (const [themeId, expected] of [
       ["clawd", true],
-      ["cloudling", true],
-      ["calico", false],
     ]) {
       const { metadata, normalized } = capabilityPair(themeId);
       assert.strictEqual(metadata.capabilities.accessories, expected, `${themeId} metadata`);
@@ -168,36 +166,5 @@ describe("built-in accessory capability contracts", () => {
       /<g class="breathe-anim">[\s\S]*?<rect id="torso"/,
       "the exact target must inherit the visible body's breathing transform"
     );
-  });
-
-  it("projects all Cloudling usages including DND and verifies exact dynamic targets", () => {
-    const { raw, normalized } = capabilityPair("cloudling");
-    const usages = projectThemeVisualUsages(raw);
-    const files = collectRequiredAssetFiles(raw);
-
-    assert.strictEqual(usages.length, 41);
-    assert.strictEqual(files.length, 29);
-    assert.strictEqual(normalized._capabilities.accessories, true);
-    assert.ok(files.includes("cloudling-idle-to-sleeping.svg"));
-    assert.ok(
-      usages.some((usage) => (
-        usage.file === "cloudling-idle-to-sleeping.svg"
-        && usage.source === "timings.dndSleepTransitionSvg"
-      ))
-    );
-    assertDeclaredTargetsExist("cloudling", raw);
-
-    for (const hidden of [
-      "cloudling-idle-to-sleeping.svg",
-      "cloudling-dozing-to-sleeping.svg",
-      "cloudling-sleeping.svg",
-      "cloudling-sleeping-static.png",
-      "cloudling-sleeping-to-idle.svg",
-      "cloudling-mini-enter-sleep.svg",
-      "cloudling-mini-sleep.svg",
-    ]) {
-      assert.strictEqual(raw.customization.accessories.files[hidden].visibility, "hidden");
-      assert.ok(usages.some((usage) => usage.file === hidden), `${hidden} should be reachable`);
-    }
   });
 });

@@ -935,16 +935,16 @@ test("a partial landing after a previous preview hands back by its own revision"
 });
 
 test("a mini-working preview keeps ownership and is handed back by the settings timer", () => {
-  const cloudling = themeLoader.loadTheme("cloudling");
-  const { api } = createRealStateRuntime({ theme: cloudling, miniMode: true });
-  const harness = createRuntimeHarness({ stateRuntime: api, activeTheme: cloudling });
+  const clawd = themeLoader.loadTheme("clawd");
+  const { api } = createRealStateRuntime({ theme: clawd, miniMode: true });
+  const harness = createRuntimeHarness({ stateRuntime: api, activeTheme: clawd });
   try {
     withFakeTimers((timers) => {
       assert.deepStrictEqual(
         harness.runtime.previewAnimationOverride({ stateKey: "working", file: "working.svg", durationMs: 900 }),
         { status: "ok", applied: true }
       );
-      // Cloudling maps working → mini-working; the ownership marker must
+      // Clawd maps working → mini-working; the ownership marker must
       // survive that remap or the preview stays on screen forever.
       assert.strictEqual(api.getCurrentState(), "mini-working");
       assert.strictEqual(api.isSettingsPreviewVisual(), true);
