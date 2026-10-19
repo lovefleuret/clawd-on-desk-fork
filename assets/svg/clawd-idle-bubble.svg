@@ -107,7 +107,7 @@
 
   <g id="master-group">
     <g id="accessory-anchor" class="body-squash">
-      <g fill="#DE886D">
+      <g fill="#D87656">
         <rect x="2" y="6" width="11" height="7"/>
         <rect class="arm-left-down" x="0" y="9" width="2" height="2"/>
         <rect x="3" y="13" width="1" height="2"/>
@@ -122,7 +122,7 @@
     </g>
 
     <g class="arm-right-out">
-      <rect x="13" y="9" width="2" height="2" fill="#DE886D"/>
+      <rect x="13" y="9" width="2" height="2" fill="#D87656"/>
     </g>
 
     <g transform="translate(14.45 10.55)">

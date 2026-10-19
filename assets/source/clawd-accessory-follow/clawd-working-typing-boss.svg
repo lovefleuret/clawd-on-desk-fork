@@ -120,7 +120,7 @@
   <g transform="rotate(1 7.5 15)">
     <g id="master-group">
 
-      <g id="legs" fill="#DE886D">
+      <g id="legs" fill="#D87656">
         <rect class="step-left"  id="outer-left-leg"  x="3"  y="13" width="1" height="2"/>
         <rect class="step-left"  id="inner-left-leg"  x="5"  y="13" width="1" height="2"/>
         <rect class="step-right" id="inner-right-leg" x="9"  y="13" width="1" height="2"/>
@@ -129,7 +129,7 @@
 
       <g class="body-walk">
 
-        <g id="body-parts" fill="#DE886D">
+        <g id="body-parts" fill="#D87656">
           <rect id="torso"     x="2"  y="6" width="11" height="7"/>
           <rect id="left-arm"  x="0"  y="9" width="2"  height="2"/>
           <rect id="right-arm" x="13" y="9" width="2"  height="2"/>

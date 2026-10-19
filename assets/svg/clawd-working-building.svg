@@ -200,7 +200,7 @@
   </g>
 
   <!-- Legs (bounce with body, no squash) -->
-  <g class="body-bounce" fill="#DE886D">
+  <g class="body-bounce" fill="#D87656">
     <rect x="3" y="13" width="1" height="2"/>
     <rect x="5" y="13" width="1" height="2"/>
     <rect x="9" y="13" width="1" height="2"/>
@@ -223,7 +223,7 @@
       <g id="accessory-anchor" class="body-squash">
 
         <!-- Torso -->
-        <rect x="2" y="6" width="11" height="7" fill="#DE886D"/>
+        <rect x="2" y="6" width="11" height="7" fill="#D87656"/>
 
         <!-- Eyes [look 5s > blink 4s] — 放在 helmet 之前, 让帽子压过眼睛 -->
         <g class="eyes-look">
@@ -305,7 +305,7 @@
 
       <!-- Left arm (bounces + breathes, NO squash) -->
       <g class="arm-l-rest">
-        <rect x="0" y="9" width="2" height="2" fill="#DE886D"/>
+        <rect x="0" y="9" width="2" height="2" fill="#D87656"/>
       </g>
 
     </g>
@@ -315,7 +315,7 @@
   <g class="body-bounce">
     <g class="breathe">
       <g class="arm-hammer">
-        <rect x="13" y="9" width="2" height="2" fill="#DE886D"/>
+        <rect x="13" y="9" width="2" height="2" fill="#D87656"/>
         <!-- Hammer -->
         <g>
           <!-- Handle -->

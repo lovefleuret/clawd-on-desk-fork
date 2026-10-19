@@ -96,7 +96,7 @@
   <g transform="rotate(-12, 7.5, 15)">
 
     <!-- Legs (inside rotation group so they tilt with the body) -->
-    <g fill="#DE886D">
+    <g fill="#D87656">
       <rect x="3" y="11" width="1" height="4"/>
       <rect x="5" y="11" width="1" height="4"/>
       <rect x="9" y="11" width="1" height="4"/>
@@ -107,16 +107,16 @@
     <g id="body-js">
       <g id="accessory-anchor" class="breathe-anim">
         <!-- Torso -->
-        <rect x="2" y="6" width="11" height="7" fill="#DE886D"/>
+        <rect x="2" y="6" width="11" height="7" fill="#D87656"/>
 
         <!-- Left Arm — typing -->
         <g class="arm-l-type">
-          <rect x="0" y="9" width="3" height="2" fill="#DE886D"/>
+          <rect x="0" y="9" width="3" height="2" fill="#D87656"/>
         </g>
 
         <!-- Right Arm — typing -->
         <g class="arm-r-type">
-          <rect x="12" y="9" width="3" height="2" fill="#DE886D"/>
+          <rect x="12" y="9" width="3" height="2" fill="#D87656"/>
         </g>
 
         <!-- Eyes: JS translate wrapper + CSS blink -->

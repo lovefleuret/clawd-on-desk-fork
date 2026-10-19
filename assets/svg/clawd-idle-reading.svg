@@ -188,13 +188,13 @@
     <g id="accessory-anchor" class="breathe">
 
       <!-- 腿 + torso -->
-      <g fill="#DE886D">
+      <g fill="#D87656">
         <rect x="3" y="11" width="1" height="4"/>
         <rect x="5" y="11" width="1" height="4"/>
         <rect x="9" y="11" width="1" height="4"/>
         <rect x="11" y="11" width="1" height="4"/>
       </g>
-      <rect x="2" y="6" width="11" height="7" fill="#DE886D"/>
+      <rect x="2" y="6" width="11" height="7" fill="#D87656"/>
 
       <!-- 手阴影 (clip 到 torso, opacity 窗口 + 跟手 transform 同步) -->
       <g clip-path="url(#inside-torso)" fill="#A85A3A">
@@ -242,7 +242,7 @@
       </g>
 
       <!-- 双手 (最上层) -->
-      <g fill="#DE886D">
+      <g fill="#D87656">
         <g class="arm-l"><rect x="0" y="9" width="2" height="2"/></g>
         <g class="arm-r"><rect x="13" y="9" width="2" height="2"/></g>
       </g>

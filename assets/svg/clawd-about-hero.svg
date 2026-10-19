@@ -128,14 +128,14 @@
       <g class="mood">
         <g id="master-group">
 
-          <g id="legs" fill="#DE886D">
+          <g id="legs" fill="#D87656">
             <rect x="3"  y="13" width="1" height="2"/>
             <rect x="5"  y="13" width="1" height="2"/>
             <rect x="9"  y="13" width="1" height="2"/>
             <rect x="11" y="13" width="1" height="2"/>
           </g>
 
-          <rect x="2" y="6" width="11" height="7" fill="#DE886D"/>
+          <rect x="2" y="6" width="11" height="7" fill="#D87656"/>
 
           <g clip-path="url(#inside-torso)" class="shadow-fade">
             <g class="arm-left-motion">
@@ -172,11 +172,11 @@
           </g>
 
           <g class="arm-left-motion">
-            <rect x="0" y="9" width="2" height="2" fill="#DE886D"/>
+            <rect x="0" y="9" width="2" height="2" fill="#D87656"/>
           </g>
 
           <g class="arm-right-motion">
-            <rect x="13" y="9" width="2" height="2" fill="#DE886D"/>
+            <rect x="13" y="9" width="2" height="2" fill="#D87656"/>
           </g>
 
           <g class="sparkle-near" fill="#FFFFFF">

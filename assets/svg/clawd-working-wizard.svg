@@ -262,14 +262,14 @@
 
   <g class="body-hunch">
 
-    <g id="legs" fill="#DE886D">
+    <g id="legs" fill="#D87656">
       <rect class="leg-step leg-1" x="3" y="13" width="1" height="2"/>
       <rect class="leg-step leg-2" x="5" y="13" width="1" height="2"/>
       <rect class="leg-step leg-1" x="9" y="13" width="1" height="2"/>
       <rect class="leg-step leg-2" x="11" y="13" width="1" height="2"/>
     </g>
 
-    <g id="body-color-group" fill="#DE886D">
+    <g id="body-color-group" fill="#D87656">
       <rect id="torso" x="2" y="6" width="11" height="7"/>
       <rect id="left-arm" x="0" y="9" width="2" height="2"/>
     </g>
@@ -328,7 +328,7 @@
       </g>
     </g>
 
-    <g class="arm-fix" fill="#DE886D">
+    <g class="arm-fix" fill="#D87656">
       <rect id="right-arm" x="13" y="9" width="2" height="2"/>
     </g>
 

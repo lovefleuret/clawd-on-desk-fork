@@ -278,11 +278,11 @@
     <g class="body-breathe">
       <g id="accessory-anchor" class="body-tilt">
         <!-- 左外/左内腿: 被身体右倾挤压抬起 -->
-        <rect class="leg-left-outer" x="3" y="13" width="1" height="2" fill="#DE886D"/>
-        <rect class="leg-left-inner" x="5" y="13" width="1" height="2" fill="#DE886D"/>
+        <rect class="leg-left-outer" x="3" y="13" width="1" height="2" fill="#D87656"/>
+        <rect class="leg-left-inner" x="5" y="13" width="1" height="2" fill="#D87656"/>
 
         <!-- torso -->
-        <rect x="2" y="6" width="11" height="7" fill="#DE886D"/>
+        <rect x="2" y="6" width="11" height="7" fill="#D87656"/>
 
         <!-- 眼睛 rect (正眼/看灯泡/眨眼) -->
         <g class="eyes-rect" fill="#000000">
@@ -297,15 +297,15 @@
         </g>
 
         <!-- 左手 (在 body-tilt 内, 跟身体倾斜 + 自身 hold 期下沉微晃) -->
-        <rect id="mouth-anchor-right" class="arm-l-balance" x="0" y="9" width="2" height="2" fill="#DE886D"/>
+        <rect id="mouth-anchor-right" class="arm-l-balance" x="0" y="9" width="2" height="2" fill="#D87656"/>
       </g>
 
       <!-- 右内腿 (在 body-tilt 外, 独立支撑) -->
-      <rect x="9" y="13" width="1" height="2" fill="#DE886D"/>
+      <rect x="9" y="13" width="1" height="2" fill="#D87656"/>
     </g>
 
     <!-- 右外腿 (完全独立支撑, 不受任何 transform 影响) -->
-    <rect x="11" y="13" width="1" height="2" fill="#DE886D"/>
+    <rect x="11" y="13" width="1" height="2" fill="#D87656"/>
 
     <!-- 灯泡 + rays 包一组, 跟右手举更高 -->
     <g class="lightbulb-zone">
@@ -429,7 +429,7 @@
     <!-- 右手: body-breathe → body-tilt → arm-r 三层嵌套 (跟身体微呼吸 + 身体右倾 + 自己举起多举) -->
     <g class="body-breathe">
       <g class="body-tilt">
-        <g class="arm-r" fill="#DE886D">
+        <g class="arm-r" fill="#D87656">
           <rect x="13" y="9" width="2" height="2"/>
         </g>
       </g>

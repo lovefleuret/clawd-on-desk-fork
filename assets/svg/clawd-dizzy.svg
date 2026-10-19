@@ -163,7 +163,7 @@
 
   <rect id="ground-shadow" x="3" y="15" width="9" height="1" fill="#000000" opacity="0.48"/>
 
-  <g id="legs-only" fill="#DE886D">
+  <g id="legs-only" fill="#D87656">
     <rect x="3" y="13" width="1" height="2"/>
     <rect x="5" y="13" width="1" height="2"/>
     <rect x="9" y="13" width="1" height="2"/>
@@ -171,7 +171,7 @@
   </g>
 
   <g id="upper-body">
-    <g fill="#DE886D">
+    <g fill="#D87656">
       <rect id="torso" x="2" y="6" width="11" height="7"/>
       <g id="left-arm"><rect x="0" y="9" width="2" height="2"/></g>
       <g id="right-arm"><rect x="13" y="9" width="2" height="2"/></g>

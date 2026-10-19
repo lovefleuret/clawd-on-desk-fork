@@ -195,7 +195,7 @@
   <!-- Layer 1: Body -->
   <g class="body-bounce">
     <g class="breathe">
-      <g fill="#DE886D">
+      <g fill="#D87656">
         <rect x="3" y="13" width="1" height="2"/>
         <rect x="5" y="13" width="1" height="2"/>
         <rect x="9" y="13" width="1" height="2"/>
@@ -264,7 +264,7 @@
   <!-- Layer 3: Arms -->
   <g class="body-bounce">
     <g class="breathe">
-      <g fill="#DE886D">
+      <g fill="#D87656">
         <g class="arm-l-type"><rect x="0" y="9" width="2" height="2"/></g>
         <g class="arm-r-type"><rect x="13" y="9" width="2" height="2"/></g>
       </g>

@@ -131,7 +131,7 @@
 
   <rect class="shadow-sway" x="3" y="15" width="9" height="1" fill="#000000"/>
 
-  <g fill="#DE886D">
+  <g fill="#D87656">
     <rect class="leg-left-outer"  x="3"  y="13" width="1" height="2"/>
     <rect class="leg-left-inner"  x="5"  y="13" width="1" height="2"/>
     <rect class="leg-right-inner" x="9"  y="13" width="1" height="2"/>
@@ -139,7 +139,7 @@
   </g>
 
   <g id="accessory-anchor" class="body-sway">
-    <rect x="2" y="6" width="11" height="7" fill="#DE886D"/>
+    <rect x="2" y="6" width="11" height="7" fill="#D87656"/>
 
     <!-- 头带 (不参与 squeeze, 只跟随 body-sway) -->
     <g fill="#1D5C83">
@@ -177,10 +177,10 @@
     </g>
 
     <g class="arm-left-dance">
-      <rect x="-1" y="9" width="2" height="2" fill="#DE886D"/>
+      <rect x="-1" y="9" width="2" height="2" fill="#D87656"/>
     </g>
     <g class="arm-right-dance">
-      <rect x="14" y="9" width="2" height="2" fill="#DE886D"/>
+      <rect x="14" y="9" width="2" height="2" fill="#D87656"/>
     </g>
 
     <g fill="none" stroke="#000000" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round">
